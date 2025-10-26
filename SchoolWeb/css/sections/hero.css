@@ -1,0 +1,150 @@
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 80vh; /* fills full screen height */
+  width: 100%;
+  background-color: var(--accent-color1);
+  overflow: hidden; /* hides scrollbars */
+  padding: 0 5vw;
+  box-sizing: border-box;
+}
+
+/* LEFT SIDE (Jeepney + Text) */
+.hero-image {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero-image img {
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.hero-image h2 {
+  font-family: var(--libre-carlson);
+  font-weight: 700;
+  font-size: clamp(20px, 3vw, 32px);
+  color: var(--primary-color);
+  margin-top: 1rem;
+  text-align: left;
+}
+
+/* RIGHT SIDE (Background Image + Text) */
+.hero-content {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  height: 100%;
+  padding: 0 4.5vw;
+  background: linear-gradient(to left, rgba(255,255,255,0) 0%, var(--accent-color1) 200%), 
+  url("right-bg.png");
+
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--accent-color1);
+  opacity: .85;
+  z-index: 1;
+}
+
+/* RIGHT TEXT CONTENT */
+.hero-content-info h1 {
+    margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  font-size: clamp(36px, 5vw, 80px);
+  font-weight: 600;
+  font-family: var(--libre-carlson);
+  text-shadow: 2px 2px 4px var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.hero-content-info p {
+  font-family: var(--libre-carlson);
+  text-shadow: 2px 2px 4px var(--secondary-color);
+  color: #000;
+  font-size: clamp(14px, 1.8vw, 18px);
+  margin-top: 0.5rem;
+}
+
+/* BUTTON STYLES */
+.hero-content__buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-content__about-button {
+  background: #fbca1f;
+  font-family: inherit;
+  padding: 0.6em 1.3em;
+  font-weight: 900;
+  font-size: clamp(14px, 1.8vw, 18px);
+  border: 3px solid black;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+  cursor: pointer;
+  transition: 0.15s ease-in-out;
+}
+
+.hero-content__about-button:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em;
+}
+
+.hero-content__about-button:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em;
+}
+
+.hero-content__about-button-span {
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+
+/* 📱 RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh; /* still full-screen */
+    padding: 5vh 5vw;
+  }
+
+  .hero-image, .hero-content {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    flex: none;
+  }
+
+  .hero-content {
+    background: var(--accent-color1); /* remove image for mobile */
+  }
+
+  .hero-image img {
+    max-width: 300px;
+  }
+
+  .hero-content__testimonial {
+    text-align: center;
+  }
+}
